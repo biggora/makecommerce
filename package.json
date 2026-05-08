@@ -23,7 +23,7 @@
     "type": "git",
     "url": "git+https://github.com/biggora/make-commerce.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": "",
   "type": "module",
   "main": "./dist/index.cjs",
