@@ -1,7 +1,7 @@
 # @biggora/makecommerce
 
 [![npm version](https://img.shields.io/npm/v/@biggora/makecommerce.svg)](https://www.npmjs.com/package/@biggora/makecommerce)
-[![Unit Tests](https://github.com/biggora/makecommerce/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/biggora/makecommerce/actions/workflows/unit-tests.yml
+[![Unit Tests](https://github.com/biggora/makecommerce/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/biggora/makecommerce/actions/workflows/unit-tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 TypeScript SDK and NestJS adapter for the MakeCommerce REST API.
