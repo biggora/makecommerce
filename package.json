@@ -1,6 +1,6 @@
 {
   "name": "@biggora/makecommerce",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript SDK and NestJS adapter for MakeCommerce API.",
   "keywords": [
     "makecommerce",
@@ -15,13 +15,13 @@
     "nestjs",
     "ecommerce"
   ],
-  "homepage": "https://github.com/biggora/make-commerce#readme",
+  "homepage": "https://github.com/biggora/makecommerce#readme",
   "bugs": {
-    "url": "https://github.com/biggora/make-commerce/issues"
+    "url": "https://github.com/biggora/makecommerce/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/biggora/make-commerce.git"
+    "url": "git+https://github.com/biggora/makecommerce.git"
   },
   "license": "MIT",
   "author": "",
