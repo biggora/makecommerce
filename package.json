@@ -25,8 +25,7 @@
   },
   "license": "MIT",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npmjs.org"
+    "access": "public"
   },
   "author": "",
   "type": "module",
