@@ -6,13 +6,23 @@
 
 TypeScript SDK and NestJS adapter for the MakeCommerce REST API.
 
+Targets Node.js `20+`. Ships dual `ESM`/`CommonJS` builds and a first-class NestJS subpath export.
+
 ## Install
 
 ```bash
 npm install @biggora/makecommerce
 ```
 
-## Node.js
+NestJS apps also need peer deps:
+
+```bash
+npm install @nestjs/common @nestjs/core reflect-metadata rxjs
+```
+
+## Quick Start: Checkout
+
+Create a transaction with return, cancel, and notification URLs. Redirect the buyer to the returned payment URL, then confirm the transaction status from a server-side notification before fulfilling the order.
 
 ```ts
 import { createMakeCommerceClient } from '@biggora/makecommerce';
@@ -52,9 +62,33 @@ const transaction = await makeCommerce.transactions.create({
 });
 
 const redirectUrl = transaction.payment_methods?.other?.find((method) => method.name === 'redirect')?.url;
+
+console.log(redirectUrl);
 ```
 
 `environment` defaults to `test`. Use `environment: 'live'` for `https://api.maksekeskus.ee`, or pass `baseUrl` for custom routing.
+
+## Webhook Notifications
+
+MakeCommerce sends transaction updates to the `notification_url` configured on the transaction. Parse the incoming body, then read the transaction from MakeCommerce before changing local order state.
+
+```ts
+export async function handleMakeCommerceNotification(body: { transaction?: string; id?: string; reference?: string }) {
+  const transactionId = body.transaction ?? body.id;
+
+  if (!transactionId) {
+    throw new Error('Missing MakeCommerce transaction id');
+  }
+
+  const transaction = await makeCommerce.transactions.get(transactionId);
+
+  if (transaction.status === 'COMPLETED') {
+    // Mark body.reference as paid in your order system.
+  }
+
+  return 'OK';
+}
+```
 
 ## Resources
 
@@ -121,6 +155,8 @@ MakeCommerceModule.forRootAsync({
   }),
 });
 ```
+
+Inject the SDK client in controllers that receive `notification_url` callbacks and reuse the same transaction confirmation flow there.
 
 ## Errors
 
