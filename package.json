@@ -1,6 +1,6 @@
 {
   "name": "@biggora/makecommerce",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "TypeScript SDK and NestJS adapter for MakeCommerce API.",
   "keywords": [
     "makecommerce",

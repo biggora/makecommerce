@@ -10,6 +10,7 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   target: 'node20',
+  tsconfig: 'tsconfig.build.json',
   outDir: 'dist',
   external: ['@nestjs/common', '@nestjs/core', 'reflect-metadata', 'rxjs'],
 });
